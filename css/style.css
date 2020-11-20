@@ -8,11 +8,44 @@
   border: 1px solid black;
 }
 
+.debug .flex-column {
+  border: 1px solid cadetblue;
+}
+
+.debug .header {
+  border: 1px solid firebrick;
+}
+
+.debug .notification {
+  border: 1px solid indianred;
+}
+
+.debug .search-bar {
+  border: 1px solid lightcoral;
+}
+
+.debug .contact-list {
+  border: 1px solid orange;
+}
+
+.debug .chat-box {
+  border: 1px solid limegreen;
+}
+.debug .input-bar {
+  border: 1px solid mediumaquamarine;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .bg-underlay {
   width: 100vw;
   height: 100vh;
   background: rgb(0,150,136);
-  background: linear-gradient(rgba(0,150,136,1) 20%, rgba(220,219,209,1) 20%, rgba(210,219,219,1) 100%);
+  background: linear-gradient(rgba(0,150,136,1) 20vh, rgba(220,219,209,1) 20vh, rgba(210,219,219,1) 100%);
 
 
   /* potenziale nuova classe per centramento elemento */
@@ -28,4 +61,42 @@
   width:80%;
   height: 90%;
   background-color: white;
+
+  display: flex;
+}
+
+.c-left {
+  width: 40%;
+}
+
+.c-right {
+  width: 60%;
+}
+
+.header{
+  width:100%;
+  height: 60px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.notification {
+  width: 100%;
+  height: 75px;
+}
+
+.search-bar {
+  width: 100%;
+  height: 50px;
+}
+
+.contact-list, .chat-box {
+  width: 100%;
+  height: 100%;
+}
+
+.input-bar{
+  width:100%;
+  height: 60px;
 }
