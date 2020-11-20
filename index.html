@@ -12,19 +12,21 @@
 		<script src="libs/vue.js" charset="utf-8"></script>
 		<!-- Custom CSS -->
 		<link rel="stylesheet" href="css/style.css">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
 		<!-- Custom JS Functions -->
 		<script src="js/functions.js" charset="utf-8"></script>
 	</head>
 	<body>
-		<div class=" bg-underlay">
+		<div class=" bg-underlay flex-center">
 			<div id="root" class="container">
 				<div class="flex-column c-left">
 					<div class="user-bar header flex">
 						<div class="user flex">
 
 								<img :src="userContact.avatar" alt="user avatar">
-								<p>{{userContact.name}}</p>
+								<p class="bold-black">{{userContact.name}}</p>
 
 						</div>
 						<div class="user-options">
@@ -35,23 +37,25 @@
 					</div>
 
 					<div class="notification flex">
-						<div class="circle-box">
+						<div class="circle-box flex-center">
 							<i class="fas fa-bell-slash"></i>
 						</div>
 						<div class="text">
-							<p>Ricevi notifiche di nuovi messaggi</p>
-							<p>Attiva notifiche desktop</p>
+							<p class="bold-black">Ricevi notifiche di nuovi messaggi</p>
+							<p class="underline-thin-grey">Attiva notifiche desktop</p>
 						</div>
 					</div>
 
 					<div class="search-bar flex">
-						<input type="text" name="" value="" placeholder="Cerca o inizia una nuova chat">
+						<div class="formField">
+							<input class="valid" type="text" name="name" value="" placeholder="Cerca o inizia una nuova chat"/>
+						</div>
 					</div>
 					<div class="contact-list">
 						<ul>
-							<li v-for="(contact,index) in contacts">
+							<li v-for="(contact,index) in contacts" class="flex">
 								<img :src="contact.avatar" alt="user index">
-								<span>{{contact.name}}</span>
+								<span class="bold-black">{{contact.name}}</span>
 							</li>
 						</ul>
 					</div>
@@ -61,8 +65,8 @@
 						<div class="current-contact flex">
 							<img :src="contacts[0].avatar" alt="current user index">
 							<div class="">
-								<p>{{contacts[0].name}}</p>
-								<p>Ultimo aggiornamento alle</p>
+								<p class="bold-black">{{contacts[0].name}}</p>
+								<p class="thin-grey">Ultimo aggiornamento alle</p>
 							</div>
 
 						</div>
@@ -77,10 +81,16 @@
 					<div class="chat-box">
 
 					</div>
-					<div class="input-bar flex">
-						<i class="far fa-smile"></i>
+					<div class="input-bar flex-center">
+						<div class="w10 flex-center">
+							<i class="far fa-smile"></i>
+						</div>
+
 						<input type="text" name="" value="" placeholder="Scrivi un messaggio">
-						<i class="fas fa-microphone"></i>
+						<div class="w10 flex-center">
+							<i class="fas fa-microphone"></i>
+						</div>
+
 
 
 					</div>

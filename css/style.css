@@ -2,6 +2,8 @@
   padding:0;
   margin:0;
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
 }
 
 .debug .container {
@@ -29,6 +31,18 @@
   border: 1px solid mediumaquamarine;
 }
 
+.flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-around{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .flex-column {
   display: flex;
   flex-direction: column;
@@ -48,6 +62,35 @@ img, .circle-box{
 
 li{
   list-style: none;
+  padding: 10px 10px;
+  border-bottom: 1px solid #DCDBD1;
+}
+
+li.flex {
+  align-items: flex-start;
+}
+
+.w10{
+  width: 10%;
+}
+
+.bold-black{
+  color: black;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.thin-grey{
+  color:#8C9DB0;
+  font-size: 0.70rem;
+  font-weight: 300;
+}
+
+.underline-thin-grey{
+  color:#6A9BB1;
+  font-size: 0.70rem;
+  font-weight: 300;
+  text-decoration: underline;
 }
 
 .bg-underlay {
@@ -55,13 +98,6 @@ li{
   height: 100vh;
   background: rgb(0,150,136);
   background: linear-gradient(rgba(0,150,136,1) 20vh, rgba(220,219,209,1) 20vh, rgba(210,219,219,1) 100%);
-
-
-  /* potenziale nuova classe per centramento elemento */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
 }
 
 .container {
@@ -90,16 +126,67 @@ li{
   justify-content: space-between;
 }
 
+.header i {
+  color:#B2B0B1;
+  padding-right:0.9rem;
+}
+
+.header img {
+  margin: 0 10px;
+}
+
 .notification {
   width: 100%;
   min-height: 75px;
   background-color: #8EDAFC;
 }
 
+.notification i {
+  color:#8EDAFC;
+}
+
+.notification .circle-box {
+  background-color: white;
+  margin: 0 10px;
+}
+
 .search-bar {
   width: 100%;
   min-height: 50px;
   background-color: #FBFBFB;
+}
+
+.search-bar input {
+  width: 100%;
+  margin-left: 15px;
+}
+
+.search-bar input::placeholder {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #DCDBD1;
+  text-align: justify;
+}
+
+.formField{
+    margin:0 10px;
+    border: 1px solid #EAEAEA;
+    padding-right: 30px;
+    position: relative;
+}
+
+input.valid{
+    background-color: transparent;
+    border: 0;
+    margin-right: 50px;
+}
+
+.formField:before{
+    position: absolute;
+    transform: translate(0,-50%);
+    top: 50%;
+    font-family: "Font Awesome 5 Pro";
+    content: "\f002";
 }
 
 .contact-list {
@@ -117,6 +204,25 @@ li{
   width:100%;
   min-height: 60px;
   background-color: #F3EEEA;
+}
+
+.input-bar input {
+  width: 80%;
+  height: 75%;
+  border-radius: 10px;
+  border: 1px solid #EAEAEA;
+  padding: 0 20px;
+}
+
+.input-bar input::placeholder{
+  color:#B2B0B1;
+  font-size: 0.8rem;
+  font-weight: 400;
+
+}
+
+.input-bar i {
+  color:#6B7376;
 }
 
 @media screen and (max-width: 992px) {
