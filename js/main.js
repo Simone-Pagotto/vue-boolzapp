@@ -15,17 +15,17 @@ const myBoolzApp = new Vue ({
           {
             text:"Ciao come va?",
             date:"1",
-            isYour: false
+            state: 'received'
           },
           {
             text:"Bene tu?",
             date:"2",
-            isYour: true
+            state: 'sent'
           },
           {
             text:"Bene",
             date:"3",
-            isYour: false
+            state: 'received'
           }
         ]
       },
@@ -42,13 +42,26 @@ const myBoolzApp = new Vue ({
         messageHistory:[]
       }
     ],
-    openContactIndex: 0
+    openContactIndex: 0,
+    currentUserMessage: '',
+    now: new Date()
+
+
   },
   methods: {
     openChat: function(index){
       this.openContactIndex = index;
+    },
+    addMessage: function(){
+      this.now = new Date();
+      let newObj = {
+        text : this.currentUserMessage,
+        date: this.now.getDate()+'/'+this.now.getMonth()+'/'+this.now.getFullYear()+' '+this.now.getHours()+':'+this.now.getMinutes()+':'+this.now.getSeconds(),
+        state: 'sent'
+      }
+      this.contacts[this.openContactIndex].messageHistory.push(newObj);
+      this.currentUserMessage='';
     }
   }
-
 
 })
