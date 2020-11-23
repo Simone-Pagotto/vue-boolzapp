@@ -81,8 +81,8 @@
 					</div>
 					<div class="chat-box flex-column">
 						<!-- <div v-for="contact in contacts"> -->
-							<div  v-for="e in contacts[openContactIndex].messageHistory" :key="e.id" class="message-box"
-										v-bind:"isYour ? 'userMessage' : 'contactMessage'">
+							<div  v-for="e in contacts[openContactIndex].messageHistory" class="message-box"
+										v-bind:class="e.isYour ? 'userMessage' : 'contactMessage'">
 								<div class="flex">
 									<p>{{e.text}}</p>
 									<i class="fas fa-paperclip"></i>
