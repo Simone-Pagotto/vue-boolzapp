@@ -13,7 +13,7 @@
 		<!-- Custom CSS -->
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
 		<!-- Custom JS Functions -->
 		<script src="js/functions.js" charset="utf-8"></script>
@@ -47,13 +47,14 @@
 					</div>
 
 					<div class="search-bar flex">
-						<div class="formField">
+						<div class="formField flex">
+							<i class="fas fa-search"></i>
 							<input class="valid" type="text" name="name" value="" placeholder="Cerca o inizia una nuova chat"/>
 						</div>
 					</div>
 					<div class="contact-list">
 						<ul>
-							<li v-for="(contact,index) in contacts" class="flex">
+							<li @click="openChat(index)" v-bind:class="openContactIndex===index?'bg-grey' : null" v-for="(contact,index) in contacts" class="flex">
 								<img :src="contact.avatar" alt="user index">
 								<span class="bold-black">{{contact.name}}</span>
 							</li>
@@ -63,10 +64,10 @@
 				<div class="flex-column c-right">
 					<div class="contact-bar header flex">
 						<div class="current-contact flex">
-							<img :src="contacts[0].avatar" alt="current user index">
+							<img :src="contacts[openContactIndex].avatar" alt="current user index">
 							<div class="">
-								<p class="bold-black">{{contacts[0].name}}</p>
-								<p class="thin-grey">Ultimo aggiornamento alle</p>
+								<p class="bold-black">{{contacts[openContactIndex].name}}</p>
+								<p class="thin-grey">Ultimo aggiornamento alle {{contacts[openContactIndex].lastAccess}}</p>
 							</div>
 
 						</div>
@@ -78,8 +79,17 @@
 						</div>
 
 					</div>
-					<div class="chat-box">
-
+					<div class="chat-box flex-column">
+						<!-- <div v-for="contact in contacts"> -->
+							<div  v-for="e in contacts[openContactIndex].messageHistory" :key="e.id" class="message-box"
+										v-bind:"isYour ? 'userMessage' : 'contactMessage'">
+								<div class="flex">
+									<p>{{e.text}}</p>
+									<i class="fas fa-paperclip"></i>
+								</div>
+								<p class="flex-end">data</p>
+							</div>
+						<!-- </div> -->
 					</div>
 					<div class="input-bar flex-center">
 						<div class="w10 flex-center">

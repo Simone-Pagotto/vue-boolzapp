@@ -6,6 +6,7 @@
   font-size: 16px;
 }
 
+/* debugging */
 .debug .container {
   border: 1px solid black;
 }
@@ -29,6 +30,12 @@
 }
 .debug .input-bar {
   border: 1px solid mediumaquamarine;
+}
+
+/* common classes */
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .flex-center{
@@ -74,6 +81,7 @@ li.flex {
   width: 10%;
 }
 
+/* style classes */
 .bold-black{
   color: black;
   font-weight: 600;
@@ -100,13 +108,18 @@ li.flex {
   background: linear-gradient(rgba(0,150,136,1) 20vh, rgba(220,219,209,1) 20vh, rgba(210,219,219,1) 100%);
 }
 
+.bg-grey{
+  background-color: #DCDBD1;
+}
+
+/* containers */
 .container {
-  /* larghezza minima per la visualizzazione desktop */
-  width:80%;
   height: 90%;
+  min-height: 135px;
   background-color: white;
 
   display: flex;
+  flex: 0 1 1100px;
 }
 
 .c-left {
@@ -133,6 +146,10 @@ li.flex {
 
 .header img {
   margin: 0 10px;
+}
+
+.user-bar {
+  border-right : 1px solid #D2DBDB;
 }
 
 .notification {
@@ -171,7 +188,7 @@ li.flex {
 .formField{
     margin:0 10px;
     border: 1px solid #EAEAEA;
-    padding-right: 30px;
+    padding-right: 60px;
     position: relative;
 }
 
@@ -181,23 +198,43 @@ input.valid{
     margin-right: 50px;
 }
 
-.formField:before{
-    position: absolute;
-    transform: translate(0,-50%);
-    top: 50%;
-    font-family: "Font Awesome 5 Pro";
-    content: "\f002";
+.formField i {
+  padding: 5px;
+  color: #D2DBDB;
 }
 
 .contact-list {
   width: 100%;
   height: 100%;
+  overflow-y: auto;
+}
+
+.contact-list li img {
+  margin-right: 10px;
 }
 
 .chat-box{
   width: 100%;
   height: 100%;
+  padding: 25px 50px 5px 50px;
   background-image: url('../img/mine.jpg');
+  overflow-y: auto;
+}
+
+.message-box{
+  border-radius: 10px;
+  padding : 10px 5px 5px 10px;
+  width: 40%;
+}
+
+.userMessage {
+  background-color: #D5F9BA;
+  align-self: flex-end;
+}
+
+.contactMessage {
+  background-color: white;
+  align-self: flex-start;
 }
 
 .input-bar{
