@@ -33,6 +33,12 @@
 }
 
 /* common classes */
+.flex-align{
+  display: flex;
+  align-items: center;
+
+}
+
 .flex-end {
   display: flex;
   justify-content: flex-end;
@@ -87,15 +93,28 @@ li.flex {
   width: 10%;
 }
 
+.overflow{
+  width:225px;
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
 /* style classes */
 .bold-black{
   color: black;
-  font-weight: 600;
-  font-size: 0.8rem;
+  font-weight: 500;
+  font-size: 0.9rem;
 }
 
 .normal-black{
   color: rgb(48, 48, 48);
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.big-grey {
+  color:#8C9DB0;
   font-weight: 400;
   font-size: 0.9rem;
 }
@@ -247,6 +266,7 @@ input.valid{
   margin: 5px 0;
   width: 40%;
   word-break: break-all;
+  position: relative;
 }
 
 .message-box .haed {
@@ -261,6 +281,12 @@ input.valid{
 .contactMessage {
   background-color: white;
   align-self: flex-start;
+}
+
+.msg-dropdown {
+  position: absolute;
+  top: 0;
+  right: 2%;
 }
 
 .input-bar{
@@ -279,10 +305,10 @@ input.valid{
 
 .input-bar input::placeholder{
   color:#B2B0B1;
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: 400;
-
 }
+
 
 .input-bar i {
   color:#6B7376;

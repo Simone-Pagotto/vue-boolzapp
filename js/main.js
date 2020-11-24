@@ -231,6 +231,10 @@ const myBoolzApp = new Vue ({
         this.contacts[this.openContactIndex].messageHistory.push(newRandomObj);
       }, 3000);
       this.currentUserMessage='';
+    },
+    lastMessage: function(index){
+      const lastMessageIndex = this.contacts[index].messageHistory.length - 1;
+      return this.contacts[index].messageHistory[lastMessageIndex].text;
     }
   },
   computed: {

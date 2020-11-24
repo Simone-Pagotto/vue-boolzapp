@@ -57,11 +57,13 @@
 						<ul>
 							<li @click="openChat(index)" @mouseover="contact.hover = true" @mouseleave="contact.hover = false"
 									 v-bind:class="[(openContactIndex===index?'bg-grey' : null),(contact.hover && openContactIndex!==index ? 'bg-light-grey' : null)]"
-									 v-for="(contact,index) in filteredContacts" class="flex">
+									 v-for="(contact,index) in filteredContacts" class="flex-align">
 								<img :src="contact.avatar" alt="user index">
-								<span class="bold-black">{{contact.name}}</span>
-								<!-- <p>{{contact.messageHistory.state}}</p> -->
-								<!-- ???????????? perchè non funziona .text?????? -->
+								<div class="flex-column">
+									<p class="bold-black">{{contact.name}}</p>
+									<p class="big-grey overflow">{{lastMessage(index)}}</p>
+									<!-- <p>{{contact.messageHistory[contact.messageHistory.length-1].text}}</p> -->
+								</div>
 							</li>
 						</ul>
 					</div>
@@ -94,6 +96,9 @@
 									<div v-show="e.isViewed"><i class="fas fa-check fa-sm"></i></div>
 								</div>
 								<p class="flex-end thinner-grey">{{e.date}}</p>
+								<div class="msg-dropdown">
+									<i class="fas fa-chevron-down"></i>
+								</div>
 							</div>
 						<!-- </div> -->
 					</div>
@@ -101,8 +106,7 @@
 						<div class="w10 flex-center">
 							<i class="far fa-smile"></i>
 						</div>
-
-						<input v-on:keyup.enter="addMessage" v-model="currentUserMessage" type="text-area" name="" value="" placeholder="Scrivi un messaggio">
+						<input v-on:keyup.enter="addMessage" v-model="currentUserMessage" placeholder="Scrivi un messaggio" ></input>
 						<div class="w10 flex-center">
 							<i class="fas fa-microphone"></i>
 						</div>
