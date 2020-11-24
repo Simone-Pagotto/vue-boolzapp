@@ -16,19 +16,22 @@ const myBoolzApp = new Vue ({
             text:"Ciao come va?",
             date: "01/01/2020 12:34:33",
             state: 'received',
-            isViewed: false
+            isViewed: false,
+            dropdown: false,
           },
           {
             text:"Bene tu?",
             date:"01/01/2020 12:34:33",
             state: 'sent',
-            isViewed: false
+            isViewed: false,
+            dropdown: false
           },
           {
             text:"Bene",
             date:"01/01/2020 12:34:33",
             state: 'received',
-            isViewed: false
+            isViewed: false,
+            dropdown:false
           }
         ],
         hover: false

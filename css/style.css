@@ -284,9 +284,28 @@ input.valid{
 }
 
 .msg-dropdown {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity:0;
+}
+
+.msg-dropdown:hover {
+  opacity:1;
+}
+
+.msg-dropdown i {
   position: absolute;
   top: 0;
   right: 2%;
+  color:#B2B0B1;
+}
+
+.dd-menu{
+  display:none;
 }
 
 .input-bar{
