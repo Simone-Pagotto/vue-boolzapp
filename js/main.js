@@ -27,25 +27,29 @@ const myBoolzApp = new Vue ({
             date:"01/01/2020 12:34:33",
             state: 'received'
           }
-        ]
+        ],
+        hover: false
       },
       {
         name: 'Angelo Taggiasca',
         avatar: 'img/avatar_2.jpg',
         lastAccess:'15:45 Lun 23 Nov 2020',
-        messageHistory:[]
+        messageHistory:[],
+        hover: false
       },
       {
         name: 'Paolo Lo Squalo',
         avatar: 'img/avatar_3.jpg',
         lastAccess:'1:27 Lun 23 Nov 2020',
-        messageHistory:[]
+        messageHistory:[],
+        hover: false
       }
     ],
     openContactIndex: 0,
     currentUserMessage: '',
     now: new Date(),
     search: ""
+
 
 
   },
@@ -57,10 +61,30 @@ const myBoolzApp = new Vue ({
       this.now = new Date();
       let newObj = {
         text : this.currentUserMessage,
-        date: this.now.getDate()+'/'+this.now.getMonth()+'/'+this.now.getFullYear()+' '+this.now.getHours()+':'+this.now.getMinutes()+':'+this.now.getSeconds(),
+        date: this.now.getDate().toString().padStart(2,"0")+'/'
+              +this.now.getMonth().toString().padStart(2,"0")+'/'
+              +this.now.getFullYear()+' '
+              +this.now.getHours().toString().padStart(2,"0")+':'
+              +this.now.getMinutes().toString().padStart(2,"0")+':'
+              +this.now.getSeconds().toString().padStart(2,"0"),
         state: 'sent'
       }
-      this.contacts[this.openContactIndex].messageHistory.push(newObj);
+      setTimeout(this.contacts[this.openContactIndex].messageHistory.push(newObj), 2000) ;
+      //messaggio random
+      setTimeout(() => {
+        this.now = new Date();
+        let newRandomObj = {
+          text : 'Non so cosa mi stai dicendo, quindi rispondo con un messaggio sempre uguale!!! :-)',
+          date: this.now.getDate().toString().padStart(2,"0")+'/'
+                +this.now.getMonth().toString().padStart(2,"0")+'/'
+                +this.now.getFullYear()+' '
+                +this.now.getHours().toString().padStart(2,"0")+':'
+                +this.now.getMinutes().toString().padStart(2,"0")+':'
+                +this.now.getSeconds().toString().padStart(2,"0"),
+          state: 'received'
+        }
+        this.contacts[this.openContactIndex].messageHistory.push(newRandomObj);
+      }, 3000);
       this.currentUserMessage='';
     }
   },

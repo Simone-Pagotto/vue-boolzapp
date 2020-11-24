@@ -127,7 +127,11 @@ li.flex {
 }
 
 .bg-grey{
-  background-color: #DCDBD1;
+  background-color: #E9EBEB;
+}
+
+.bg-light-grey {
+  background-color: #f8f9f9;
 }
 
 /* containers */
@@ -242,6 +246,7 @@ input.valid{
   padding : 10px 5px 5px 10px;
   margin: 5px 0;
   width: 40%;
+  word-break: break-all;
 }
 
 .message-box .haed {

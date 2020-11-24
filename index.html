@@ -55,11 +55,13 @@
 					</div>
 					<div class="contact-list">
 						<ul>
-							<li @click="openChat(index)" v-bind:class="openContactIndex===index?'bg-grey' : null"
+							<li @click="openChat(index)" @mouseover="contact.hover = true" @mouseleave="contact.hover = false"
+									 v-bind:class="contact.hover ? 'bg-lighter-grey' : null"
+									 v-bind:class="openContactIndex===index?'bg-grey' : null"
 									 v-for="(contact,index) in filteredContacts" class="flex">
 								<img :src="contact.avatar" alt="user index">
 								<span class="bold-black">{{contact.name}}</span>
-								<!-- <p>{{contacts[index].messageHistory[1]}}</p> -->
+								<!-- <p>{{contact.messageHistory.state}}</p> -->
 								<!-- ???????????? perchè non funziona .text?????? -->
 							</li>
 						</ul>
