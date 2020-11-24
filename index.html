@@ -49,14 +49,18 @@
 					<div class="search-bar flex">
 						<div class="formField flex">
 							<i class="fas fa-search"></i>
-							<input class="valid" type="text" name="name" value="" placeholder="Cerca o inizia una nuova chat"/>
+							<input class="valid" type="text" name="name" v-model="search"
+										 placeholder="Cerca o inizia una nuova chat"/>
 						</div>
 					</div>
 					<div class="contact-list">
 						<ul>
-							<li @click="openChat(index)" v-bind:class="openContactIndex===index?'bg-grey' : null" v-for="(contact,index) in contacts" class="flex">
+							<li @click="openChat(index)" v-bind:class="openContactIndex===index?'bg-grey' : null"
+									 v-for="(contact,index) in filteredContacts" class="flex">
 								<img :src="contact.avatar" alt="user index">
 								<span class="bold-black">{{contact.name}}</span>
+								<!-- <p>{{contacts[index].messageHistory[1]}}</p> -->
+								<!-- ???????????? perchè non funziona .text?????? -->
 							</li>
 						</ul>
 					</div>
@@ -84,10 +88,10 @@
 							<div  v-for="e in contacts[openContactIndex].messageHistory" class="message-box"
 										v-bind:class="e.state === 'sent' ? 'userMessage' : 'contactMessage'">
 								<div class="flex-between">
-									<p>{{e.text}}</p>
-									<i class="fas fa-check"></i>
+									<div class="haed normal-black">{{e.text}}</div>
+									<i class="fas fa-check fa-sm"></i>
 								</div>
-								<p class="flex-end">{{e.date}}</p>
+								<p class="flex-end thinner-grey">{{e.date}}</p>
 							</div>
 						<!-- </div> -->
 					</div>
@@ -96,7 +100,7 @@
 							<i class="far fa-smile"></i>
 						</div>
 
-						<input v-on:keyup.enter="addMessage" v-model="currentUserMessage" type="text" name="" value="" placeholder="Scrivi un messaggio">
+						<input v-on:keyup.enter="addMessage" v-model="currentUserMessage" type="text-area" name="" value="" placeholder="Scrivi un messaggio">
 						<div class="w10 flex-center">
 							<i class="fas fa-microphone"></i>
 						</div>

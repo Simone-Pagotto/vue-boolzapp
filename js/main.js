@@ -14,17 +14,17 @@ const myBoolzApp = new Vue ({
         messageHistory:[
           {
             text:"Ciao come va?",
-            date:"1",
+            date: "01/01/2020 12:34:33",
             state: 'received'
           },
           {
             text:"Bene tu?",
-            date:"2",
+            date:"01/01/2020 12:34:33",
             state: 'sent'
           },
           {
             text:"Bene",
-            date:"3",
+            date:"01/01/2020 12:34:33",
             state: 'received'
           }
         ]
@@ -44,7 +44,8 @@ const myBoolzApp = new Vue ({
     ],
     openContactIndex: 0,
     currentUserMessage: '',
-    now: new Date()
+    now: new Date(),
+    search: ""
 
 
   },
@@ -62,6 +63,14 @@ const myBoolzApp = new Vue ({
       this.contacts[this.openContactIndex].messageHistory.push(newObj);
       this.currentUserMessage='';
     }
+  },
+  computed: {
+    filteredContacts: function(){
+      return this.contacts.filter((contact) => {
+          return contact.name.toLowerCase().match(this.search);
+        });
+    }
+
   }
 
 })

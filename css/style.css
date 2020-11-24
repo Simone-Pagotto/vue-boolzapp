@@ -94,9 +94,21 @@ li.flex {
   font-size: 0.8rem;
 }
 
+.normal-black{
+  color: black;
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+
 .thin-grey{
   color:#8C9DB0;
   font-size: 0.70rem;
+  font-weight: 300;
+}
+
+.thinner-grey{
+  color:#8C9DB0;
+  font-size: 0.55rem;
   font-weight: 300;
 }
 
@@ -180,7 +192,7 @@ li.flex {
 }
 
 .search-bar input {
-  width: 100%;
+  width: 265px;;
   margin-left: 15px;
 }
 
@@ -194,14 +206,12 @@ li.flex {
 .formField{
     margin:0 10px;
     border: 1px solid #EAEAEA;
-    padding-right: 60px;
     position: relative;
 }
 
 input.valid{
     background-color: transparent;
     border: 0;
-    margin-right: 50px;
 }
 
 .formField i {
@@ -232,6 +242,10 @@ input.valid{
   padding : 10px 5px 5px 10px;
   margin: 5px 0;
   width: 40%;
+}
+
+.message-box .haed {
+  word-wrap: break-word;
 }
 
 .userMessage {
