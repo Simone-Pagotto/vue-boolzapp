@@ -56,8 +56,7 @@
 					<div class="contact-list">
 						<ul>
 							<li @click="openChat(index)" @mouseover="contact.hover = true" @mouseleave="contact.hover = false"
-									 v-bind:class="contact.hover ? 'bg-lighter-grey' : null"
-									 v-bind:class="openContactIndex===index?'bg-grey' : null"
+									 v-bind:class="[(openContactIndex===index?'bg-grey' : null),(contact.hover && openContactIndex!==index ? 'bg-light-grey' : null)]"
 									 v-for="(contact,index) in filteredContacts" class="flex">
 								<img :src="contact.avatar" alt="user index">
 								<span class="bold-black">{{contact.name}}</span>
@@ -88,10 +87,11 @@
 					<div class="chat-box flex-column">
 						<!-- <div v-for="contact in contacts"> -->
 							<div  v-for="e in contacts[openContactIndex].messageHistory" class="message-box"
-										v-bind:class="e.state === 'sent' ? 'userMessage' : 'contactMessage'">
+										v-bind:class="e.state === 'sent' ? 'userMessage' : 'contactMessage'"
+										@click="e.isViewed = !e.isViewed">
 								<div class="flex-between">
 									<div class="haed normal-black">{{e.text}}</div>
-									<i class="fas fa-check fa-sm"></i>
+									<div v-show="e.isViewed"><i class="fas fa-check fa-sm"></i></div>
 								</div>
 								<p class="flex-end thinner-grey">{{e.date}}</p>
 							</div>
