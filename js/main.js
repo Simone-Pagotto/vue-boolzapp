@@ -243,7 +243,10 @@ const myBoolzApp = new Vue ({
   },
   methods: {
     openChat: function(index){
-      this.openContactIndex = index;
+      // this.openContactIndex = index;
+      const transObj = {...this.contacts[index]};//metto l'oggetto selezionato in un contenitore
+      this.contacts.splice(index,1);//taglio oggetto
+      this.contacts.unshift(transObj);//metto l'oggetto nel contenitore al primo posto
     },
     addMessage: function(){
       this.now = new Date();
