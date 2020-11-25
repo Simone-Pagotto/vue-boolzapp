@@ -44,17 +44,23 @@ const myBoolzApp = new Vue ({
           {
             text:"Ciao come va?",
             date: "01/01/2020 12:34:33",
-            state: 'received'
+            state: 'received',
+            isViewed: false,
+            isDown:false
           },
           {
             text:"Bene tu?",
             date:"01/01/2020 12:34:33",
-            state: 'sent'
+            state: 'sent',
+            isViewed: false,
+            isDown:false
           },
           {
             text:"Bene",
             date:"01/01/2020 12:34:33",
-            state: 'received'
+            state: 'received',
+            isViewed: false,
+            isDown:false
           }
         ],
         hover: false
@@ -66,17 +72,23 @@ const myBoolzApp = new Vue ({
         messageHistory:[{
           text:"Ciao come va?",
           date: "01/01/2020 12:34:33",
-          state: 'received'
+          state: 'received',
+          isViewed: false,
+          isDown:false
         },
         {
           text:"Bene tu?",
           date:"01/01/2020 12:34:33",
-          state: 'sent'
+          state: 'sent',
+          isViewed: false,
+          isDown:false
         },
         {
           text:"Bene",
           date:"01/01/2020 12:34:33",
-          state: 'received'
+          state: 'received',
+          isViewed: false,
+          isDown:false
         }
       ],
         hover: false
@@ -88,17 +100,23 @@ const myBoolzApp = new Vue ({
         messageHistory:[{
           text:"Ciao come va?",
           date: "01/01/2020 12:34:33",
-          state: 'received'
+          state: 'received',
+          isViewed: false,
+          isDown:false
         },
         {
           text:"Bene tu?",
           date:"01/01/2020 12:34:33",
-          state: 'sent'
+          state: 'sent',
+          isViewed: false,
+          isDown:false
         },
         {
           text:"Bene",
           date:"01/01/2020 12:34:33",
-          state: 'received'
+          state: 'received',
+          isViewed: false,
+          isDown:false
         }
       ],
         hover: false
@@ -110,17 +128,23 @@ const myBoolzApp = new Vue ({
         messageHistory:[{
           text:"Ciao come va?",
           date: "01/01/2020 12:34:33",
-          state: 'received'
+          state: 'received',
+          isViewed: false,
+          isDown:false
         },
         {
           text:"Bene tu?",
           date:"01/01/2020 12:34:33",
-          state: 'sent'
+          state: 'sent',
+          isViewed: false,
+          isDown:false
         },
         {
           text:"Bene",
           date:"01/01/2020 12:34:33",
-          state: 'received'
+          state: 'received',
+          isViewed: false,
+          isDown:false
         }
       ],
         hover: false
@@ -132,17 +156,23 @@ const myBoolzApp = new Vue ({
         messageHistory:[{
           text:"Ciao come va?",
           date: "01/01/2020 12:34:33",
-          state: 'received'
+          state: 'received',
+          isViewed: false,
+            isDown:false
         },
         {
           text:"Bene tu?",
           date:"01/01/2020 12:34:33",
-          state: 'sent'
+          state: 'sent',
+          isViewed: false,
+            isDown:false
         },
         {
           text:"Bene",
           date:"01/01/2020 12:34:33",
-          state: 'received'
+          state: 'received',
+          isViewed: false,
+            isDown:false
         }
       ],
         hover: false
@@ -154,17 +184,23 @@ const myBoolzApp = new Vue ({
         messageHistory:[{
           text:"Ciao come va?",
           date: "01/01/2020 12:34:33",
-          state: 'received'
+          state: 'received',
+          isViewed: false,
+          isDown:false
         },
         {
           text:"Bene tu?",
           date:"01/01/2020 12:34:33",
-          state: 'sent'
+          state: 'sent',
+          isViewed: false,
+          isDown:false
         },
         {
           text:"Bene",
           date:"01/01/2020 12:34:33",
-          state: 'received'
+          state: 'received',
+          isViewed: false,
+          isDown:false
         }
       ],
         hover: false
@@ -176,17 +212,23 @@ const myBoolzApp = new Vue ({
         messageHistory:[{
           text:"Ciao come va?",
           date: "01/01/2020 12:34:33",
-          state: 'received'
+          state: 'received',
+          isViewed: false,
+          isDown:false
         },
         {
           text:"Bene tu?",
           date:"01/01/2020 12:34:33",
-          state: 'sent'
+          state: 'sent',
+          isViewed: false,
+          isDown:false
         },
         {
           text:"Bene",
           date:"01/01/2020 12:34:33",
-          state: 'received'
+          state: 'received',
+          isViewed: false,
+          isDown:false
         }
       ],
         hover: false
@@ -251,6 +293,9 @@ const myBoolzApp = new Vue ({
           e.isDown = !e.isDown;
         }
       }
+    },
+    removeMessage: function(index){
+      this.contacts[this.openContactIndex].messageHistory.splice(index,1);
     }
   },
   computed: {
