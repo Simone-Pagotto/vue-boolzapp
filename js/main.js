@@ -239,6 +239,7 @@ const myBoolzApp = new Vue ({
     currentUserMessage: '',
     now: new Date(),
     search: "",
+    isEmojiOpen: false
 
   },
   methods: {

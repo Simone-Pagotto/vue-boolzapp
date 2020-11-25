@@ -19,7 +19,7 @@
 		<script src="js/functions.js" charset="utf-8"></script>
 	</head>
 	<body>
-		<div class=" bg-underlay flex-center">
+		<div class="bg-underlay flex-center">
 			<div id="root" class="container">
 				<div class="flex-column c-left">
 					<div class="user-bar header flex">
@@ -108,16 +108,41 @@
 							</div>
 						<!-- </div> -->
 					</div>
+					<!-- animazione in appositi tag del contenitore bersaglio dell'animazione -->
+					<!-- la transition si collega alle apposite classi per la transizione dividendole in 3 momenti
+								INIZIO , TRANSIZIONE vera e propria e FINE -->
+					<transition name="slide">
+						<!-- v-if sostituisce logicamente il v-bind sulla classe -->
+						<div v-if="isEmojiOpen" class="curtain-box flex-column">
+							<ul class="emoji-bar flex">
+								<li><i class="far fa-clock"></i></li>
+								<li><i class="far fa-grin-alt"></i></li>
+								<li><i class="fas fa-paw"></i></li>
+								<li><i class="fas fa-mug-hot"></i></li>
+								<li><i class="fas fa-volleyball-ball"></i></li>
+								<li><i class="fas fa-car"></i></li>
+								<li><i class="far fa-lightbulb"></i></li>
+								<li><i class="fas fa-hashtag"></i></li>
+								<li><i class="fas fa-flag"></i></li>
+							</ul>
+							<div class="emoji-main flex-column">
+								<input type="text" placeholder="Cerca emoji">
+								<ul class="emoji-list">
+
+								</ul>
+							</div>
+						</div>
+					</transition>
+
 					<div class="input-bar flex-center">
-						<div class="w10 flex-center">
-							<i class="far fa-smile"></i>
+						<div class="w10 flex-around">
+							<div @click="isEmojiOpen = false" :class="isEmojiOpen ? null : 'inactive'"><i class="fas fa-times"></i></div>
+							<div @click="isEmojiOpen = true"><i class="far fa-smile"></i></div>
 						</div>
 						<input v-on:keyup.enter="addMessage" v-model="currentUserMessage" placeholder="Scrivi un messaggio" ></input>
 						<div class="w10 flex-center">
 							<i class="fas fa-microphone"></i>
 						</div>
-
-
 
 					</div>
 

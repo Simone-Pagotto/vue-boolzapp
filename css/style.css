@@ -31,6 +31,12 @@
 .debug .input-bar {
   border: 1px solid mediumaquamarine;
 }
+.debug .emoji-bar {
+  border: 1px solid black;
+}
+.debug .emoji-list {
+  border: 1px solid green;
+}
 
 /* common classes */
 .flex-align{
@@ -348,6 +354,45 @@ input.valid{
   display:none;
 }
 
+.curtain-box{
+  height: 400px;
+  background-color: #F0F0F0;
+}
+
+.emoji-bar {
+  height: 40px;
+}
+.emoji-bar li {
+  width: calc(100% / 9);
+  display: flex;
+  justify-content: center;
+}
+
+.emoji-bar li i {
+  color: #A3A3A3;
+}
+
+.curtain-box input {
+  height: 30px;
+}
+
+.emoji-list{
+  height: auto;
+}
+.slide-enter, .slide-leave-to{
+  height: 0px;
+}
+
+.slide-enter-active, .slide-leave-active{
+  transition-property: height;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in;
+}
+
+.slide-enter-to, .slide-leave{
+  height: 400px;
+}
+
 .input-bar{
   width:100%;
   min-height: 60px;
@@ -367,7 +412,6 @@ input.valid{
   font-size: 1rem;
   font-weight: 400;
 }
-
 
 .input-bar i {
   color:#6B7376;
