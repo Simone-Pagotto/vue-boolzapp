@@ -99,10 +99,10 @@
 									<div class="box" @click="resetDown(e,index)"><i class="fas fa-chevron-down"></i></div>
 								</div>
 								<ul :class="[(e.state === 'received'? 'dd-menu-rec': 'dd-menu-sent'),(e.isDown ? null : 'inactive')]">
-									<li>Info messaggio</li>
-									<li>Rispondi</li>
-									<li>Inoltra messaggio</li>
-									<li>Messaggio importante</li>
+									<li><a>Info messaggio</a></li>
+									<li><a>Rispondi</a></li>
+									<li><a>Inoltra messaggio</a></li>
+									<li><a>Messaggio importante</a></li>
 									<li><a @click="removeMessage(index)">Elimina messaggio</a></li>
 								</ul>
 							</div>

@@ -94,7 +94,7 @@ li.flex {
 }
 
 .overflow{
-  width:225px;
+  width:200px;
   white-space: nowrap;
   overflow-x: hidden;
   text-overflow: ellipsis;
@@ -315,7 +315,7 @@ input.valid{
   padding: 10px;
   z-index: 3;
   border:none;
-  /* box-shadow:  */
+  box-shadow:0 0 10px 0px grey;
 
 }
 
@@ -329,23 +329,24 @@ input.valid{
   padding: 10px;
   z-index: 3;
   border:none;
-  /* box-shadow:  */
+  box-shadow:0 0 10px 0px grey;
 
 }
 
 
-.dd-menu li {
+[class*="dd-menu"] li {
+  border: none;
+}
+
+[class*="dd-menu"] li a {
   color: rgb(48, 48, 48);
   font-weight: 400;
-  font-size: 0.8rem;
-  border: none;
+  font-size: 0.9rem;
 }
 
 .inactive{
   display:none;
 }
-
-
 
 .input-bar{
   width:100%;
