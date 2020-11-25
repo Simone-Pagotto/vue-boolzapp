@@ -113,6 +113,7 @@ li.flex {
   font-size: 0.9rem;
 }
 
+
 .big-grey {
   color:#8C9DB0;
   font-weight: 400;
@@ -297,16 +298,54 @@ input.valid{
   opacity:1;
 }
 
-.msg-dropdown i {
+.msg-dropdown .box {
   position: absolute;
   top: 0;
   right: 2%;
   color:#B2B0B1;
 }
 
-.dd-menu{
+.dd-menu-rec{
+  width:70%;
+  position:absolute;
+  right: -40%;
+  top: 30%;
+
+  background-color: white;
+  padding: 10px;
+  z-index: 3;
+  border:none;
+  /* box-shadow:  */
+
+}
+
+.dd-menu-sent{
+  width:70%;
+  position:absolute;
+  right: 0%;
+  top: 35%;
+
+  background-color: white;
+  padding: 10px;
+  z-index: 3;
+  border:none;
+  /* box-shadow:  */
+
+}
+
+
+.dd-menu li {
+  color: rgb(48, 48, 48);
+  font-weight: 400;
+  font-size: 0.8rem;
+  border: none;
+}
+
+.inactive{
   display:none;
 }
+
+
 
 .input-bar{
   width:100%;

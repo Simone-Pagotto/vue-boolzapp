@@ -17,21 +17,21 @@ const myBoolzApp = new Vue ({
             date: "01/01/2020 12:34:33",
             state: 'received',
             isViewed: false,
-            dropdown: false,
+            isDown: false
           },
           {
             text:"Bene tu?",
             date:"01/01/2020 12:34:33",
             state: 'sent',
             isViewed: false,
-            dropdown: false
+            isDown: false
           },
           {
             text:"Bene",
             date:"01/01/2020 12:34:33",
             state: 'received',
             isViewed: false,
-            dropdown:false
+            isDown:false
           }
         ],
         hover: false
@@ -196,9 +196,7 @@ const myBoolzApp = new Vue ({
     openContactIndex: 0,
     currentUserMessage: '',
     now: new Date(),
-    search: ""
-
-
+    search: "",
 
   },
   methods: {
@@ -238,6 +236,21 @@ const myBoolzApp = new Vue ({
     lastMessage: function(index){
       const lastMessageIndex = this.contacts[index].messageHistory.length - 1;
       return this.contacts[index].messageHistory[lastMessageIndex].text;
+    },
+    resetDown: function(e,index) {
+      const length = this.contacts[this.openContactIndex].messageHistory.length;
+      for(let i=0; i<length; i++){
+        let currentIsDown = this.contacts[this.openContactIndex].messageHistory[i].isDown;
+        if( currentIsDown === true && i!==index){
+          currentIsDown = !currentIsDown;
+          this.$set(this.contacts[this.openContactIndex].messageHistory[i],'isDown',currentIsDown);
+        }
+      }
+      for(let i=0; i<length; i++){
+        if(i===index){
+          e.isDown = !e.isDown;
+        }
+      }
     }
   },
   computed: {

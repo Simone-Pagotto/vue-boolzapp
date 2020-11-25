@@ -87,7 +87,7 @@
 					</div>
 					<div class="chat-box flex-column">
 						<!-- <div v-for="contact in contacts"> -->
-							<div  v-for="e in contacts[openContactIndex].messageHistory" class="message-box"
+							<div  v-for="(e,index) in contacts[openContactIndex].messageHistory" class="message-box"
 										v-bind:class="e.state === 'sent' ? 'userMessage' : 'contactMessage'"
 										@click="e.isViewed = !e.isViewed">
 								<div class="flex-between">
@@ -96,10 +96,9 @@
 								</div>
 								<p class="flex-end thinner-grey">{{e.date}}</p>
 								<div class="msg-dropdown">
-									<i class="fas fa-chevron-down"></i>
-
+									<div class="box" @click="resetDown(e,index)"><i class="fas fa-chevron-down"></i></div>
 								</div>
-								<ul class="dd-menu">
+								<ul :class="[(e.state === 'received'? 'dd-menu-rec': 'dd-menu-sent'),(e.isDown ? null : 'inactive')]">
 									<li>Info messaggio</li>
 									<li>Rispondi</li>
 									<li>Inoltra messaggio</li>
