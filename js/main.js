@@ -261,7 +261,8 @@ const myBoolzApp = new Vue ({
               +this.now.getSeconds().toString().padStart(2,"0"),
         state: 'sent'
       }
-      setTimeout(this.contacts[this.openContactIndex].messageHistory.push(newObj), 2000) ;
+      const pointerarray = this.contacts[this.openContactIndex].messageHistory;
+      setTimeout(pointerarray.push(newObj), 2000) ;
       //messaggio random
       setTimeout(() => {
         this.now = new Date();
@@ -275,7 +276,7 @@ const myBoolzApp = new Vue ({
                 +this.now.getSeconds().toString().padStart(2,"0"),
           state: 'received'
         }
-        this.contacts[this.openContactIndex].messageHistory.push(newRandomObj);
+        pointerarray.push(newRandomObj);
       }, 3000);
       this.currentUserMessage='';
     },

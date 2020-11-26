@@ -339,7 +339,6 @@ input.valid{
 
 }
 
-
 [class*="dd-menu"] li {
   border: none;
 }
@@ -362,6 +361,7 @@ input.valid{
 .emoji-bar {
   height: 40px;
 }
+
 .emoji-bar li {
   width: calc(100% / 9);
   display: flex;
@@ -379,6 +379,7 @@ input.valid{
 .emoji-list{
   height: auto;
 }
+
 .slide-enter, .slide-leave-to{
   height: 0px;
 }
