@@ -50,30 +50,49 @@
 						<div class="formField flex">
 							<i class="fas fa-search"></i>
 							<input class="valid" type="text" name="name" v-model="search"
+										 v-on:keyup="filterContacts"
 										 placeholder="Cerca o inizia una nuova chat"/>
 						</div>
 					</div>
 					<div class="contact-list">
 						<ul>
-							<li @click="openChat(index)" @mouseover="contact.hover = true" @mouseleave="contact.hover = false"
-									 v-bind:class="[(openContactIndex===index?'bg-grey' : null),(contact.hover && openContactIndex!==index ? 'bg-light-grey' : null)]"
-									 v-for="(contact,index) in filteredContacts" class="flex-align">
-								<img :src="contact.avatar" alt="user index">
-								<div class="flex-column">
-									<p class="bold-black">{{contact.name}}</p>
-									<p class="big-grey overflow">{{lastMessage(index)}}</p>
-								</div>
-							</li>
+							<!-- |||||||||||||||||||||||||||||||||||||||||||||| -->
+							<template v-if="search.length > 0">
+								<li @click="openFilteredChat(contact,index)"
+										@mouseover="contact.hover = true" @mouseleave="contact.hover = false"
+										v-bind:class="[(contact===contacts[0]?'bg-grey' : null),(contact.hover && openContact!==contact ? 'bg-light-grey' : null)]"
+										v-for="(contact,index) in filteredContacts" class="flex-align">
+									<img :src="contact.avatar" alt="user index">
+									<div class="flex-column">
+										<p class="bold-black">{{contact.name}}</p>
+										<p class="big-grey overflow">{{lastMessage(index)}}</p>
+									</div>
+								</li>
+							</template>
+
+							<template v-else>
+								<li @click="openChat(contact,index)"
+										@mouseover="contact.hover = true" @mouseleave="contact.hover = false"
+										v-bind:class="[(contact===contacts[0]?'bg-grey' : null),(contact.hover && openContact!==contact ? 'bg-light-grey' : null)]"
+										v-for="(contact,index) in contacts" class="flex-align">
+									<img :src="contact.avatar" alt="user index">
+									<div class="flex-column">
+										<p class="bold-black">{{contact.name}}</p>
+										<p class="big-grey overflow">{{lastMessage(index)}}</p>
+									</div>
+								</li>
+							</template>
+
 						</ul>
 					</div>
 				</div>
 				<div class="flex-column c-right">
 					<div class="contact-bar header flex">
 						<div class="current-contact flex">
-							<img :src="contacts[openContactIndex].avatar" alt="current user index">
+							<img :src="openContact.avatar" alt="current user index">
 							<div class="">
-								<p class="bold-black">{{contacts[openContactIndex].name}}</p>
-								<p class="thin-grey">Ultimo aggiornamento alle {{contacts[openContactIndex].lastAccess}}</p>
+								<p class="bold-black">{{openContact.name}}</p>
+								<p class="thin-grey">Ultimo aggiornamento alle {{openContact.lastAccess}}</p>
 							</div>
 
 						</div>
@@ -85,9 +104,9 @@
 						</div>
 
 					</div>
-					<div class="chat-box flex-column">
+					<div id="scroll" class="chat-box flex-column">
 						<!-- <div v-for="contact in contacts"> -->
-							<div  v-for="(e,index) in contacts[openContactIndex].messageHistory" class="message-box"
+							<div  v-for="(e,index) in openContact.messageHistory" class="message-box"
 										v-bind:class="e.state === 'sent' ? 'userMessage' : 'contactMessage'"
 										@click="e.isViewed = !e.isViewed">
 								<div class="flex-between">
@@ -128,7 +147,7 @@
 							<div class="emoji-main flex-column">
 								<input type="text" placeholder="Cerca emoji">
 								<ul class="emoji-list">
-
+									<p>1F600 </p>
 								</ul>
 							</div>
 						</div>
